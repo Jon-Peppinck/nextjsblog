@@ -7,16 +7,10 @@ import {
   ThemeProvider,
   useTheme,
   CssBaseline,
-  Typography,
-  Badge,
-  Box,
-  Divider,
 } from '@mui/material';
 
-import MailIcon from '@mui/icons-material/Mail';
-
 import '../styles/globals.css';
-import HeaderComponent from '../Header.component';
+import HeaderComponent from '../components/Header.component';
 
 import {
   getStoredTheme,
@@ -51,49 +45,6 @@ function MyApp({ Component, pageProps }: AppProps) {
           setStoredTheme(newMode);
         }}
       />
-
-      <Box
-        display='flex'
-        justifyContent='center'
-        alignItems='center'
-        minHeight='100vh'
-      >
-        <div>
-          <Badge badgeContent={1} color='primary'>
-            <MailIcon />
-          </Badge>
-          <Badge badgeContent={2} color='secondary'>
-            <MailIcon />
-          </Badge>
-          <Badge badgeContent={3} color='info'>
-            <MailIcon />
-          </Badge>
-          <Badge badgeContent={4} color='warning'>
-            <MailIcon />
-          </Badge>
-          <Badge badgeContent={5} color='error'>
-            <MailIcon />
-          </Badge>
-          <Badge badgeContent={6} color='success'>
-            <MailIcon />
-          </Badge>
-          <div
-            style={{ height: '400px', color: customTheme.palette.warning.dark }}
-          >
-            <Typography color='primary' variant='h1'>
-              Jon Peppinck
-            </Typography>
-            <Typography color='secondary' variant='h3'>
-              Web Developer
-            </Typography>
-            <Divider />
-            <Typography variant='h4'>
-              NextJS TypeScript Dark Mode Material UI
-            </Typography>
-          </div>
-          <p>This is the first video - Creating a coding blog</p>
-        </div>
-      </Box>
 
       <Component {...pageProps} />
     </ThemeProvider>

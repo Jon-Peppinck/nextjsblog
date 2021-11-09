@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 import { FC } from 'react';
 
 import { PaletteMode, useTheme } from '@mui/material';
@@ -28,15 +30,17 @@ const HeaderComponent: FC<Props> = ({ mode, onChange }) => {
         position='static'
       >
         <Toolbar>
-          <IconButton
-            size='large'
-            edge='start'
-            color='inherit'
-            aria-label='menu'
-            sx={{ mr: 2 }}
-          >
-            <MenuIcon />
-          </IconButton>
+          <Link href='/' passHref>
+            <IconButton
+              size='large'
+              edge='start'
+              color='inherit'
+              aria-label='menu'
+              sx={{ mr: 2 }}
+            >
+              <MenuIcon />
+            </IconButton>
+          </Link>
           <Typography variant='h6' component='div' sx={{ flexGrow: 1 }}>
             Jon Peppinck
           </Typography>
