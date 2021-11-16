@@ -1,0 +1,17 @@
+---
+topic: 'Introduction to NodeJS'
+section: 'NodeJS'
+part: 1
+---
+
+## NodeJS server
+
+Creating a server is easy in Node:
+
+```typescript
+const express = require('express');
+
+const app = express();
+const ports = process.env.PORT || 3000;
+app.listen(ports, () => console.log(`listening on port ${ports}`));
+```
