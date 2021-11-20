@@ -47,7 +47,7 @@ const HeaderComponent: FC<Props> = ({ mode, onChange }) => {
           <Switch
             checked={mode === 'dark'}
             onChange={onChange}
-            color='secondary'
+            color='primary'
           />
         </Toolbar>
       </AppBar>
