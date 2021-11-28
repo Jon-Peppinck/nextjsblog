@@ -15,21 +15,41 @@ import typescript from 'highlight.js/lib/languages/typescript';
 
 import 'highlight.js/styles/vs2015.css';
 
+import LearnNavigationComponent from '../../../components/LearnNavigation.component';
+import SideNavigationComponent from '../../../components/SideNavigation.component';
+
+import { _menuLookup } from '../../../utils/learn/_menuLookup';
+import { Menu } from '../../../models/Menu';
+
 hljs.registerLanguage('typescript', typescript);
 
 const components = {};
 
 export default function Learn({
   source,
+  topic,
+  slug,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
   useEffect(() => {
     hljs.highlightAll();
   }, []);
 
+  const menu = _menuLookup(topic) as Menu;
+
   return (
-    <div style={{ width: '600px', margin: 'auto' }}>
-      <MDXRemote {...source} components={components} />
-    </div>
+    <>
+      <LearnNavigationComponent topic={topic} />
+      <div style={{ display: 'flex' }}>
+        <SideNavigationComponent
+          menu={menu}
+          slug={slug}
+          metaData={source.scope}
+        />
+      </div>
+      <div style={{ width: '600px', margin: 'auto' }}>
+        <MDXRemote {...source} components={components} />
+      </div>
+    </>
   );
 }
 
@@ -79,5 +99,5 @@ export const getStaticProps: GetStaticProps<Params> = async ({
   const { data: metaData, content } = matter(learn);
 
   const mdxSource = await serialize(content, { scope: metaData });
-  return { props: { source: mdxSource } };
+  return { props: { source: mdxSource, topic, slug } };
 };

@@ -23,11 +23,12 @@ const HeaderComponent: FC<Props> = ({ mode, onChange }) => {
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar
+        position='fixed'
+        sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }}
         style={{
           backgroundColor: customTheme.palette.background.paper,
           color: customTheme.palette.text.primary,
         }}
-        position='static'
       >
         <Toolbar>
           <Link href='/' passHref>
