@@ -18,9 +18,13 @@ import 'highlight.js/styles/vs2015.css';
 hljs.registerLanguage('typescript', typescript);
 
 import BlogHeaderComponent from '../../components/BlogHeader.component';
+import TableOfContentsComponent from '../../components/TableOfContents.component';
+import TableOfContentsItemComponent from '../../components/TableOfContentsItem.component';
 
 const components = {
   BlogHeaderComponent,
+  TableOfContentsComponent,
+  TableOfContentsItemComponent,
 };
 
 export default function Article({
