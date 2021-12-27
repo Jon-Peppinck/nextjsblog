@@ -13,6 +13,7 @@
     "@mui/icons-material": "^5.0.5",
     "@mui/lab": "^5.0.0-alpha.59",
     "@mui/material": "^5.0.6",
+    "@mui/styles": "^5.2.3",
     "gray-matter": "^4.0.3",
     "highlight.js": "^11.3.1",
     "marked": "^4.0.0",
