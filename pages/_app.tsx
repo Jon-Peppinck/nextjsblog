@@ -10,7 +10,9 @@ import {
 } from '@mui/material';
 
 import '../styles/globals.css';
+
 import HeaderComponent from '../components/Header.component';
+import FooterComponent from '../components/Footer.component';
 
 import {
   getStoredTheme,
@@ -34,19 +36,25 @@ function MyApp({ Component, pageProps }: AppProps) {
 
   const customTheme = useTheme(); // for use in other components - could potentially use theme
 
+  const FOOTER_HEIGHT_PX = '256px';
+
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <HeaderComponent
-        mode={mode}
-        onChange={() => {
-          const newMode: PaletteMode = mode === 'dark' ? 'light' : 'dark';
-          setMode(newMode);
-          setStoredTheme(newMode);
-        }}
-      />
-
-      <Component {...pageProps} />
+      <div style={{ position: 'relative', minHeight: '100vh' }}>
+        <HeaderComponent
+          mode={mode}
+          onChange={() => {
+            const newMode: PaletteMode = mode === 'dark' ? 'light' : 'dark';
+            setMode(newMode);
+            setStoredTheme(newMode);
+          }}
+        />
+        <div style={{ paddingBottom: FOOTER_HEIGHT_PX }}>
+          <Component {...pageProps} />
+        </div>
+        <FooterComponent />
+      </div>
     </ThemeProvider>
   );
 }

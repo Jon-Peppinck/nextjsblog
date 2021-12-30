@@ -46,7 +46,7 @@ export default function Learn({
           metaData={source.scope}
         />
       </div>
-      <div style={{ width: '600px', margin: 'auto' }}>
+      <div style={{ width: '600px', margin: 'auto', marginTop: '120px' }}>
         <MDXRemote {...source} components={components} />
       </div>
     </>

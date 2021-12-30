@@ -47,7 +47,7 @@ const Blog: NextPage = ({
   }, [tags]);
 
   return (
-    <>
+    <div style={{ paddingTop: '72px', marginBottom: '48px' }}>
       <Typography align='center' color='primary' variant='h1'>
         Blog
       </Typography>
@@ -123,7 +123,7 @@ const Blog: NextPage = ({
           }
         })}
       </div>
-    </>
+    </div>
   );
 };
 

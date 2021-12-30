@@ -61,7 +61,7 @@ const Home: NextPage = ({
           <p>This is the first video - Creating a coding blog</p>
         </div>
       </Box>
-      <div>
+      <div style={{ marginBottom: '48px' }}>
         {posts.map((post: Post, index: number) => (
           <CardComponent key={index} post={post} />
         ))}
